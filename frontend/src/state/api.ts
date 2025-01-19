@@ -1,8 +1,8 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export interface Product {
-  productId: String;
-  name: String;
+  productId: string;
+  name: string;
   price: number;
   rating?: number;
   stockQuantity: number;
