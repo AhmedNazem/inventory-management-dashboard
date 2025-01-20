@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { PrismaClient } from "@prisma/client";
+
 const prisma = new PrismaClient();
 
 export const getProducts = async (
@@ -17,11 +18,10 @@ export const getProducts = async (
     });
     res.json(products);
   } catch (error) {
-    res.status(500).json({
-      message: "internal server error in products",
-    });
+    res.status(500).json({ message: "Error retrieving products" });
   }
 };
+
 export const createProduct = async (
   req: Request,
   res: Response
@@ -39,8 +39,6 @@ export const createProduct = async (
     });
     res.status(201).json(product);
   } catch (error) {
-    res.status(500).json({
-      message: "error creating product",
-    });
+    res.status(500).json({ message: "Error creating product" });
   }
 };
